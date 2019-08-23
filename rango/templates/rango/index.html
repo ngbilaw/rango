@@ -7,10 +7,14 @@
 {% endblock %}
 
 {% block body_block %}
-<h1>Rango says...</h1>
+<div class="jumbotron p-4">
+    <div class="container">
+        <h1 class="jumbotron-heading">Rango says...</h1>
+    </div>
+</div>
 <div>
-    hey there partner! <br />
-    <strong> {{ boldmessage }}</strong> <br />
+    <h2 class="h2">Hello {{ user.username }}!</h2>
+    <strong> {{ boldmessage }}</strong> 
 </div>
 
 <h3>Most Liked Categories</h3>

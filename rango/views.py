@@ -77,7 +77,8 @@ def add_category(request, ):
         form = CategoryForm(request.POST)
 
         if form.is_valid():
-            form.save(commit=True)
+            form.save()
+
             return index(request)
         else:
             print(form.errors)
