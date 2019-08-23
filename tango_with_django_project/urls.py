@@ -14,18 +14,28 @@ Including another URLconf
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
 from django.contrib import admin
-from django.urls import path
+from django.urls import path, include
 
 from django.conf import settings
 from django.conf.urls.static import static
 
 from rango import views
 
+# from registration.backends.simple.views import RegistrationView
+# from django.urls import reverse
+
+# class MyRegistrationView(RegistrationView):
+#     def get_success_url(self, user):
+#         return reverse('index')
+
 urlpatterns = [
-    path('rango/category/<slug:category_name_slug>/add_page/', views.add_page, name='add_page'),
-    path('rango/add_category/', views.add_category, name='add_category'),
-    path('rango/category/<slug:category_name_url>/', views.show_category, name='show-category'),
-    path('rango/', views.index, name='index'),
-    path('about/', views.index, name='about'),
+    # path('accounts/register/', MyRegistrationView.as_view(), name='registration_register'),
+    path('accounts/', include('registration.backends.simple.urls')),
+    path('rango/', include('rango.urls')),
+    # path('rango/category/<slug:category_name_slug>/add_page/', views.add_page, name='add_page'),
+    # path('rango/add_category/', views.add_category, name='add_category'),
+    # path('rango/category/<slug:category_name_url>/', views.show_category, name='show-category'),
+    path('', views.index, name='index'),
+    path('about/', views.about, name='about'),
     path('admin/', admin.site.urls),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

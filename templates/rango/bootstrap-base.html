@@ -39,8 +39,11 @@
 
   <div>
     <ul>
-      <li><a href="{% url 'add_category' %}">Add New Category</a></li> <li><a href="{% url 'about' %}">About</a></li>
+      <li><a href="{% url 'rango:add_category' %}">Add New Category</a></li> <li><a href="{% url 'about' %}">About</a></li>
       <li><a href="{% url 'index' %}">Index</a></li>
+      <li><a href="{% url 'registration_register' %}">Register</a></li>
+      <li><a href="{% url 'auth_login' %}">Log in</a></li>
+      <li><a href="{% url 'auth_logout' %}?next=/rango/">Log out</a></li>
     </ul> 
   </div>
 
