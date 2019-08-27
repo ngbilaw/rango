@@ -21,12 +21,12 @@ from django.conf.urls.static import static
 
 from rango import views
 
-# from registration.backends.simple.views import RegistrationView
-# from django.urls import reverse
+from registration.backends.simple.views import RegistrationView
+from django.urls import reverse
 
-# class MyRegistrationView(RegistrationView):
-#     def get_success_url(self, user):
-#         return reverse('index')
+class MyRegistrationView(RegistrationView):
+    def get_success_url(self, user):
+        return reverse('rango/add_profile/')
 
 urlpatterns = [
     # path('accounts/register/', MyRegistrationView.as_view(), name='registration_register'),
